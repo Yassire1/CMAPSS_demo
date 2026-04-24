@@ -1,0 +1,6 @@
+data/
+_pycache__/
+*.log
+*.csv
+*.json
+_layouts/
