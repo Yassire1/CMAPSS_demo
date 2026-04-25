@@ -58,8 +58,24 @@ st.sidebar.info(
 @st.cache_resource(show_spinner="Loading LSTM model …")
 def load_model():
     import tensorflow as tf
+    from tensorflow.keras import layers
+    import os
+    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+    
+    # Rebuild the exact architecture from the notebook
+    # (avoids Keras 2 vs 3 config incompatibility with time_major)
+    model = tf.keras.Sequential([
+        layers.LSTM(128, input_shape=(30, 14), return_sequences=True, activation="tanh"),
+        layers.LSTM(64, activation="tanh", return_sequences=True),
+        layers.LSTM(32, activation="tanh"),
+        layers.Dense(96, activation="relu"),
+        layers.Dense(128, activation="relu"),
+        layers.Dense(1)
+    ])
+    
     model_path = Path(__file__).parent / "saved_models" / "cmapss" / "FD001_LSTM_piecewise_RMSE_15.1655.h5"
-    return tf.keras.models.load_model(str(model_path), compile=False)
+    model.load_weights(str(model_path))
+    return model
 
 
 @st.cache_data(show_spinner="Preprocessing C-MAPSS data …")

@@ -1,0 +1,9 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Jeu de données et prétraitement}{5}{0}{2}
+\beamer@sectionintoc {3}{Métriques d'évaluation}{11}{0}{3}
+\beamer@sectionintoc {4}{Modèle XGBoost}{12}{0}{4}
+\beamer@sectionintoc {5}{Modèle LSTM}{16}{0}{5}
+\beamer@sectionintoc {6}{Comparaison et discussion}{20}{0}{6}
+\beamer@sectionintoc {7}{Démonstration Streamlit}{22}{0}{7}
+\beamer@sectionintoc {8}{Conclusion}{23}{0}{8}

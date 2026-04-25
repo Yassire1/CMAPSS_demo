@@ -37,8 +37,8 @@
 % ==================== INFORMATIONS ====================
 \title[Prédiction RUL CMAPSS]{\textbf{Prédiction Data-Driven de la Vie Utile Résiduelle}}
 \subtitle{Application au jeu de données CMAPSS de la NASA}
-\author[Votre Nom]{\textbf{[Votre Prénom Nom]}}
-\institute[École d'Ingénieurs]{École d'Ingénieurs -- Projet de Fin de Module}
+\author[Yassire Ammouri]{\textbf{Yassire Ammouri}}
+\institute[École d'Ingénieurs]{SUPMTI Rabat -- Projet de Fin de Module}
 \date{2025--2026}
 
 % ==================== DÉBUT DU DOCUMENT ====================
@@ -81,7 +81,7 @@ Nombre d'unités de temps restantes avant qu'un composant ne puisse plus accompl
 \begin{enumerate}
     \item \textbf{Explorer} le jeu de données public CMAPSS (NASA)
     \item \textbf{Prétraiter} les données temporelles de dégradation de moteurs
-    \item \textbf{Implémenter} et comparer deux approches data-driven :
+    \item \textbf{Entrainer} et comparer deux approches data-driven :
     \begin{itemize}
         \item \textbf{XGBoost} -- Gradient boosting (machine learning classique)
         \item \textbf{LSTM} -- Réseaux de neurones récurrents profonds
@@ -203,9 +203,9 @@ Cette approche est largement utilisée dans la littérature pour améliorer la p
 \vspace{0.3cm}
 \textbf{Prédiction test :} Moyenne des prédictions sur les N dernières fenêtres de chaque moteur.
 \end{column}
-\begin{column}{0.48\textwidth}
-\includegraphics[width=\textwidth]{data_windowing_prognosis.png}
-\end{column}
+% \begin{column}{0.48\textwidth}
+% \includegraphics[width=\textwidth]{data_windowing_prognosis.png}
+% \end{column}
 \end{columns}
 \end{frame}
 
@@ -384,7 +384,7 @@ S-score & 1~024.43 \\
     input/.style={draw, rectangle, fill=lightgray, minimum width=3cm, minimum height=0.7cm},
     output/.style={draw, rectangle, fill=accentorange!30, minimum width=2cm, minimum height=0.7cm}]
 
-\node[input] (in) at (0,0) {Entrée $(30, 14)$};
+\node[input] (in) at (0,0) {Entrée (30, 14)};
 \node[layer] (lstm1) at (0,-1.2) {LSTM -- 128 neurones\\tanh, return\_sequences};
 \node[layer] (lstm2) at (0,-2.4) {LSTM -- 64 neurones\\tanh, return\_sequences};
 \node[layer] (lstm3) at (0,-3.6) {LSTM -- 32 neurones\\tanh};
@@ -409,8 +409,8 @@ S-score & 1~024.43 \\
 \begin{column}{0.48\textwidth}
 \textbf{Optimiseur :} Adam
 \begin{itemize}
-    \item Taux initial : $10^{-3}$
-    \item Réduction à $10^{-4}$ après 5 époques
+    \item Taux initial : 0.001
+    \item Réduction à 0.0001 après 5 époques
 \end{itemize}
 \vspace{0.2cm}
 \textbf{Partition :}
@@ -486,7 +486,7 @@ S-score & \textbf{448.44} \\
 RMSE (cycles) & 19.07 & \textbf{15.17} \\
 S-score & 1~024.43 & \textbf{448.44} \\
 Nombre de paramètres & -- & 223~521 \\
-Temps d'entraînement & Quelques secondes & $\sim$100 secondes \\
+Temps d'entraînement & Quelques secondes & environ 100 secondes \\
 Capacité temporelle & \textcolor{accentorange}{Non} & \textcolor{mainblue}{Oui} \\
 Interprétabilité & \textcolor{mainblue}{Élevée} & \textcolor{accentorange}{Faible} \\
 \bottomrule
@@ -591,11 +591,11 @@ Le LSTM surpasse XGBoost de \textbf{20,4\%} en RMSE et divise le S-score par plu
 {\Large Questions ?}
 \vspace{1.5cm}
 
-\textbf{Contact :} [votre.email@ecole.fr]
+% \textbf{Contact :} [votre.email@ecole.fr]
 
-\vspace{0.5cm}
-\small
-\textit{Code source :} \url{https://biswajitsahoo1111.github.io/rul_codes_open/}
+% \vspace{0.5cm}
+% \small
+% \textit{Code source :} \url{https://biswajitsahoo1111.github.io/rul_codes_open/}
 \end{center}
 \end{frame}
 
